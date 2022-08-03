@@ -1,0 +1,17 @@
+App {
+  background-color:purple;
+}
+
+
+.navButtons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  align-content: center;
+}
+
+.Routes {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}

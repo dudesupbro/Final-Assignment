@@ -1,0 +1,14 @@
+.CasinoContainer {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+
+.CasinoCard {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    background-color: brown;
+}
