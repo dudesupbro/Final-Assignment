@@ -3,7 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import {
   BrowserRouter as Router,

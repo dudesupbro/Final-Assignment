@@ -1,11 +1,12 @@
 import React from 'react';
 import '../styles/MasterList.css';
 import ReactStars from "react-rating-stars-component";
+import Casino from '../components/casino.js'
 
 
 
 
-export default function MasterList() {
+export default class MasterList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +28,7 @@ export default function MasterList() {
                     ],           
                 },
                 {
-                    id: 0,
+                    id: 1,
                     casinoName: "JR's",
                     safety: "bad neighborhood. clients with less money on average. cheaper selection of cars outside",
                     lighting: "fine.",
@@ -44,7 +45,7 @@ export default function MasterList() {
 
                 },
                 {
-                    id: 0,
+                    id: 2,
                     casinoName: "JR's",
                     safety: "bad neighborhood. clients with less money on average. cheaper selection of cars outside",
                     lighting: "fine.",
@@ -67,9 +68,9 @@ export default function MasterList() {
         return (
             <div className='container'>
                 <h1 id='title'>Master List</h1>
-                <casinoName casinoName ={this.state.masterList[0]} />
-                <casinoName casinoName ={this.state.masterList[1]} />
-                <casinoName casinoName ={this.state.masterList[2]} />
+                <Casino casino ={this.state.masterList[0]} />
+                <Casino casino ={this.state.masterList[1]} />
+                <Casino casino ={this.state.masterList[2]} />
             </div>
         );
     }
