@@ -1,7 +1,10 @@
 import React from 'react';
 import '../styles/MasterList.css';
-import ReactStars from "react-rating-stars-component";
-import Casino from '../components/casino.js'
+import '../components/Stars.js';
+import ReactStars from '../components/Stars.js';
+import Casino from '../components/casino.js';
+import Card from 'react-bootstrap/Card';
+import '../styles/MasterList.css'
 
 
 
@@ -29,7 +32,7 @@ export default class MasterList extends React.Component {
                 },
                 {
                     id: 1,
-                    casinoName: "JR's",
+                    casinoName: "YYY",
                     safety: "bad neighborhood. clients with less money on average. cheaper selection of cars outside",
                     lighting: "fine.",
                     bathroom: "single occupant male or female. Clean",
@@ -46,7 +49,7 @@ export default class MasterList extends React.Component {
                 },
                 {
                     id: 2,
-                    casinoName: "JR's",
+                    casinoName: "ZZZ",
                     safety: "bad neighborhood. clients with less money on average. cheaper selection of cars outside",
                     lighting: "fine.",
                     bathroom: "single occupant male or female. Clean",
@@ -63,15 +66,17 @@ export default class MasterList extends React.Component {
             ],
         };
     }
-
     render() {
-        return (
-            <div className='container'>
-                <h1 id='title'>Master List</h1>
-                <Casino casino ={this.state.masterList[0]} />
-                <Casino casino ={this.state.masterList[1]} />
-                <Casino casino ={this.state.masterList[2]} />
-            </div>
+        return(
+            <Card className='Container'>
+                <Card.Body>
+                    <Card.Text>
+                        <Casino casino ={this.state.masterList[0]} />
+                        <Casino casino ={this.state.masterList[1]} />
+                        <Casino casino ={this.state.masterList[2]} />
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         );
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './styles/Home.css'
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
@@ -23,7 +24,8 @@ export default function App() {
       <Container>
         <Router>
           <div>
-            <ButtonGroup className="navButtons">
+            <div className='testing'>
+            <ButtonGroup>
               <Button variant="outline-success">
                 <Link to="/">Home</Link> 
               </Button>
@@ -34,6 +36,7 @@ export default function App() {
                 <Link to ="/review-form">Review Form</Link>
               </Button>            
             </ButtonGroup>
+            </div>
             <div className="Routes">
             <Routes>
               <Route exact path="/" element={<Home />}></Route>

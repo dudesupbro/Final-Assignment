@@ -1,0 +1,11 @@
+.card-text {
+    background-color: brown;
+    align-items: center;
+    text-align: center;
+}
+
+.card-title {
+    background-color: brown;
+    margin-top: 0;
+    margin-bottom: 0;
+}
