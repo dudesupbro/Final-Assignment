@@ -3,6 +3,7 @@ import MasterList from '../pages/MasterList';
 import '../styles/casinoStyled.css';
 import Card from 'react-bootstrap/Card';
 import '../styles/CasinoCard.css';
+import ReactStars from '../components/Stars.js';
 
 
 export default class Casino extends React.Component {
@@ -12,8 +13,15 @@ export default class Casino extends React.Component {
             <div className='card'>
                 <div className='card-title'>
                     <h2>{this.props.casino.casinoName}</h2>
+
                 </div>
                 <div className='card-text'>
+                    <ReactStars
+                        count={5}
+                        onChange={this.ratingChanged}
+                        size={24}
+                        activeColor="#ffd700"
+                        />
                     <p>{this.props.casino.safety}</p>
                     <p>{this.props.casino.lighting}</p>
                     <p>{this.props.casino.bathroom}</p>

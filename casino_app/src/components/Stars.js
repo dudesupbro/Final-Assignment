@@ -1,6 +1,6 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
-import { render } from 'react-dom';
 
 const ratingChanged = (newRating) => {
     console.log(newRating);
@@ -11,10 +11,8 @@ render(
     count={5}
     onChange={ratingChanged}
     size={24}
-    activeColor='$ffd700'
+    activeColor="#ffd700"
     />,
-
-    document.getElementById("where-to-render")
 );
 
-export default ReactStars;
+export default ReactStars

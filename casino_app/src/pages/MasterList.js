@@ -1,10 +1,9 @@
 import React from 'react';
 import '../styles/MasterList.css';
-import '../components/Stars.js';
-import ReactStars from '../components/Stars.js';
 import Casino from '../components/casino.js';
 import Card from 'react-bootstrap/Card';
 import '../styles/MasterList.css'
+
 
 
 
@@ -26,7 +25,6 @@ export default class MasterList extends React.Component {
                     reviews: [
                         {
                             text: "this might be #1 on the list. It's a gas-station casino with a bunch of crackheads. Last time we went, the casino attendant was obviously involved in a domestic dispute. It's not in the best neighborhood, the cars outside are often dilapidated.",
-                            stars: <ReactStars />
                         },
                     ],           
                 },
@@ -42,7 +40,6 @@ export default class MasterList extends React.Component {
                     reviews: [
                         {
                             text: "this might be #1 on the list. It's a gas-station casino with a bunch of crackheads. Last time we went, the casino attendant was obviously involved in a domestic dispute. It's not in the best neighborhood, the cars outside are often dilapidated.",
-                            stars: <ReactStars />
                         },
                     ],     
 
@@ -59,7 +56,6 @@ export default class MasterList extends React.Component {
                     reviews: [
                         {
                             text: "this might be #1 on the list. It's a gas-station casino with a bunch of crackheads. Last time we went, the casino attendant was obviously involved in a domestic dispute. It's not in the best neighborhood, the cars outside are often dilapidated.",
-                            stars: <ReactStars />
                         },
                     ],     
                 },
