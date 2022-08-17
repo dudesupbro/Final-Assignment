@@ -15,6 +15,7 @@ export default class ReviewForm extends React.Component {
                 atmosphere: "",
                 clientelle: "",
                 drinks: "",
+                reviews: "",
             },
         };
         {
@@ -77,6 +78,14 @@ export default class ReviewForm extends React.Component {
             return { reviewInfo: copyOfInfo};
         });
     };
+    
+    onCommentChange = (event) => {
+        this.setState((state) => {
+            const copyOfInfo = {...this.state.reviewInfo};
+            copyOfInfo.reviews = event.target.value;
+            return { reviewInfo: copyOfInfo};
+        });
+    };
 
     onUserSubmit = () => {
         const newReview = {
@@ -87,9 +96,10 @@ export default class ReviewForm extends React.Component {
             atmosphere: this.state.reviewInfo.atmosphere,
             clientelle: this.state.reviewInfo.clientelle,
             drinks: this.state.reviewInfo.drinks,
+            comments: this.state.reviewInfo.comments,
         };
         this.props.onSubmit(newReview);
-        this.setState({ reviewInfo: { casinoName: "", safety: "", lighting: "", bathroom: "", atmosphere: "", clientelle: "", drinks: ""} });
+        this.setState({ reviewInfo: { casinoName: "", safety: "", lighting: "", bathroom: "", atmosphere: "", clientelle: "", drinks: "", comments: ""} });
     };
 
     render() {
@@ -129,6 +139,11 @@ export default class ReviewForm extends React.Component {
                 <Form.Group className="mb-3">
                     <Form.Label>Drinks</Form.Label>
                     <Form.Control type="text" placeholder="Complimentary or paid?" value={this.state.drinks} onChange={this.onDrinkChange}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Comments</Form.Label>
+                    <Form.Control type="text" placeholder="Complimentary or paid?" value={this.state.comments} onChange={this.onCommentChange}/>
                 </Form.Group>
 
                 <Button variant="success" type="submit" onClick={this.onUserSubmit}>

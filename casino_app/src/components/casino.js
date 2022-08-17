@@ -4,6 +4,7 @@ import '../styles/casinoStyled.css';
 import Card from 'react-bootstrap/Card';
 import '../styles/CasinoCard.css';
 import ReactStars from '../components/Stars.js';
+import ReviewList from '../components/reviewList';
 
 
 export default class Casino extends React.Component {
@@ -28,6 +29,7 @@ export default class Casino extends React.Component {
                     <p>{this.props.casino.atmosphere}</p>
                     <p>{this.props.casino.clientelle}</p>
                     <p>{this.props.casino.drinks}</p>
+                    <p>{this.props.casino.comments}</p>
                 </div>                
             </div>
             </div>
