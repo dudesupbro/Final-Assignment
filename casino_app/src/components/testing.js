@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewForm from '../pages/ReviewForm';
-import ReactStars from 'react-rating-stars-component';
+import Stars from 'react-rating-stars-component';
 import './review.js';
 
 
@@ -14,7 +14,7 @@ export default class Review extends React.Component {
 
     addReview = (newReview) => {
         this.setState((state) => ({reviews: this.state.reviews.concat([newReview]) }));
-    }
+    };
 
     ratingChanged = (newRating) => {
         console.log(newRating);
@@ -26,7 +26,7 @@ export default class Review extends React.Component {
                 {this.props.reviews.map((review, index) => (
                     <Review review={review} key={index} />
                 ))}
-                <ReactStars
+                <Stars
                     count={5}
                     onChange={this.ratingChanged}
                     size={24}

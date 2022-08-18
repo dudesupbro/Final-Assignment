@@ -16,6 +16,7 @@ export default class MasterList extends React.Component {
             masterList: [
                 {
                     id: 0,
+                    rating: "1\u{2605}",
                     casinoName: "JR's",
                     safety: "Bad neighborhood. Clients with less money on average. Cheaper selection of cars outside",
                     lighting: "Fine.",
@@ -55,6 +56,7 @@ export default class MasterList extends React.Component {
 
     updateMasterList = (reviews) => {
         this.setState((state) => ({masterList: this.state.masterList.concat(reviews)} ));
+        console.log(this.state.masterList);
     }
     
     render() {

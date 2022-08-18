@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles/ReviewForm.css'
+import Stars from '../components/Stars';
 
 export default class ReviewForm extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ export default class ReviewForm extends React.Component {
                 clientelle: "",
                 drinks: "",
                 reviews: "",
+                rating: "",
             },
         };
         {
@@ -86,6 +88,14 @@ export default class ReviewForm extends React.Component {
             return { reviewInfo: copyOfInfo};
         });
     };
+    
+    addRating = (newRating) => {
+        this.setState((state) => {
+            const copyOfInfo = { ...state.reviewInfo};
+            copyOfInfo.rating = newRating;
+            return { reviewInfo: copyOfInfo}
+        });
+    };
 
     onUserSubmit = () => {
         const newReview = {
@@ -97,9 +107,11 @@ export default class ReviewForm extends React.Component {
             clientelle: this.state.reviewInfo.clientelle,
             drinks: this.state.reviewInfo.drinks,
             comments: this.state.reviewInfo.comments,
+            rating: this.state.reviewInfo.rating + "\u{2605}",
         };
         this.props.onSubmit(newReview);
-        this.setState({ reviewInfo: { casinoName: "", safety: "", lighting: "", bathroom: "", atmosphere: "", clientelle: "", drinks: "", comments: ""} });
+        this.setState({ reviewInfo: { casinoName: "", safety: "", lighting: "", bathroom: "", atmosphere: "", clientelle: "", drinks: "", comments: ""}});
+        this.changeChild.current.clearStars();
     };
 
     render() {
@@ -143,8 +155,10 @@ export default class ReviewForm extends React.Component {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Comments</Form.Label>
-                    <Form.Control type="text" placeholder="Complimentary or paid?" value={this.state.comments} onChange={this.onCommentChange}/>
+                    <Form.Control type="text" placeholder="Additional Comments" value={this.state.comments} onChange={this.onCommentChange}/>
                 </Form.Group>
+
+                <Stars onChange={this.addRating} ref={this.changeChild} /> <br />
 
                 <Button variant="success" type="submit" onClick={this.onUserSubmit}>
                     Submit
