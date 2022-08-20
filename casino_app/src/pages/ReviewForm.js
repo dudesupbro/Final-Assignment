@@ -2,165 +2,61 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles/ReviewForm.css'
-import Stars from '../components/Stars';
 
 export default class ReviewForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state= {
-            reviewInfo: {
-                casinoName: "",
-                safety: "",
-                lighting: "",
-                bathroom: "",
-                atmosphere: "",
-                clientelle: "",
-                drinks: "",
-                reviews: "",
-                rating: "",
-            },
-        };
-        {
-            this.changeChild = React.createRef();
-        }
+
+    handleSubmit(e) {
+        alert("Submitted for review");
     }
-
-    onNameChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = { ...this.state.reviewInfo};
-            copyOfInfo.casinoName = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onSafetyChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.safety = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onLightingChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.lighting = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onBathroomChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.bathroom = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onAtmosphereChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.atmosphere = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onClientelleChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.clientelle = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-
-    onDrinkChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.drinks = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-    
-    onCommentChange = (event) => {
-        this.setState((state) => {
-            const copyOfInfo = {...this.state.reviewInfo};
-            copyOfInfo.reviews = event.target.value;
-            return { reviewInfo: copyOfInfo};
-        });
-    };
-    
-    addRating = (newRating) => {
-        this.setState((state) => {
-            const copyOfInfo = { ...state.reviewInfo};
-            copyOfInfo.rating = newRating;
-            return { reviewInfo: copyOfInfo}
-        });
-    };
-
-    onUserSubmit = () => {
-        const newReview = {
-            casinoName: this.state.reviewInfo.casinoName,
-            safety: this.state.reviewInfo.safety,
-            lighting: this.state.reviewInfo.lighting,
-            bathroom: this.state.reviewInfo.bathroom,
-            atmosphere: this.state.reviewInfo.atmosphere,
-            clientelle: this.state.reviewInfo.clientelle,
-            drinks: this.state.reviewInfo.drinks,
-            comments: this.state.reviewInfo.comments,
-            rating: this.state.reviewInfo.rating + "\u{2605}",
-        };
-        this.props.onSubmit(newReview);
-        this.setState({ reviewInfo: { casinoName: "", safety: "", lighting: "", bathroom: "", atmosphere: "", clientelle: "", drinks: "", comments: ""}});
-        this.changeChild.current.clearStars();
-    };
 
     render() {
         return (
             <div className='container'>
+                <div className='title'>
+                <h2>Have us review a Casino!</h2>
+                </div>
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group className='mb-3'>
                     <Form.Label>Casino Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter name" value={this.state.casinoName} onChange={this.onNameChange}/>
+                    <Form.Control type="text" placeholder="Enter name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Safety</Form.Label>
-                    <Form.Control type="text" placeholder="How safe did you feel?" value={this.state.safety} onChange={this.onSafetyChange}/>
+                    <Form.Control type="text" placeholder="How safe did you feel?"/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Lighting</Form.Label>
-                    <Form.Control type="text" placeholder="Dimly lit? Brightly lit?" value={this.state.lighting} onChange={this.onLightingChange}/>
+                    <Form.Control type="text" placeholder="Dimly lit? Brightly lit?"/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Bathroom</Form.Label>
-                    <Form.Control type="text" placeholder="Clean? Dirty? Small?" value={this.state.bathroom} onChange={this.onBathroomChange}/>
+                    <Form.Control type="text" placeholder="Clean? Dirty? Small?" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Atmosphere</Form.Label>
-                    <Form.Control type="text" placeholder="Lively, Sad, Scary?" value={this.state.atmosphere} onChange={this.onAtmosphereChange}/>
+                    <Form.Control type="text" placeholder="Lively, Sad, Scary?" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Clientelle</Form.Label>
-                    <Form.Control type="text" placeholder="Crackheads? Richfolk?" value={this.state.clientelle} onChange={this.onClientelleChange}/>
+                    <Form.Control type="text" placeholder="Crackheads? Richfolk?" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Drinks</Form.Label>
-                    <Form.Control type="text" placeholder="Complimentary or paid?" value={this.state.drinks} onChange={this.onDrinkChange}/>
+                    <Form.Control type="text" placeholder="Complimentary or paid?" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Comments</Form.Label>
-                    <Form.Control type="text" placeholder="Additional Comments" value={this.state.comments} onChange={this.onCommentChange}/>
+                    <Form.Control type="text" placeholder="Additional Comments" />
                 </Form.Group>
 
-                <Stars onChange={this.addRating} ref={this.changeChild} /> <br />
-
-                <Button variant="success" type="submit" onClick={this.onUserSubmit}>
+                <Button variant="success" type="submit">
                     Submit
                 </Button>
             </Form>
@@ -168,7 +64,3 @@ export default class ReviewForm extends React.Component {
         )
     };   
 }
-
-
-// empty array, push to array
-// mock api, use hook or class component, set state to empty array of reviews, onchange, onsubmit, map to location .

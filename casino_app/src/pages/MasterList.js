@@ -2,8 +2,9 @@ import React from 'react';
 import '../styles/MasterList.css';
 import Casino from '../components/casino.js';
 import Card from 'react-bootstrap/Card';
-import '../styles/MasterList.css'
-import '../components/testing.js'
+import '../styles/MasterList.css';
+import Review from '../components/Review';
+import ReviewEdit from '../components/ReviewEdit';
 
 
 
@@ -64,9 +65,15 @@ export default class MasterList extends React.Component {
             <Card className='Container'>
                 <Card.Body>
                     <Card.Text>
-                        <Casino casino ={this.state.masterList[0]} />
+                        <Casino casino ={this.state.masterList[0]} /> 
+                        <Review /> <br />
+                        <ReviewEdit />
                         <Casino casino ={this.state.masterList[1]} />
+                        <Review /> <br />
+                        <ReviewEdit />
                         <Casino casino ={this.state.masterList[2]} />
+                        <Review /> <br />
+                        <ReviewEdit />
                     </Card.Text>
                 </Card.Body>
             </Card>

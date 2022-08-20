@@ -1,27 +1,44 @@
-// import React from 'react';
-// import Card from 'react-bootstrap/Card';
+import React from 'react';
+import ReviewForm from '../pages/ReviewForm';
+import Stars from 'react-rating-stars-component';
+import '../styles/Review.css';
+import ReviewEdit from './ReviewEdit';
 
 
+export default class Review extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            reviews: [],
+        };
+    }
 
+    handleReviewChange = (e) => {
+        this.setState({
+            review: e.target.value        
+        })
+    } 
 
-// export default class Review extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//             <Card className='container' id='review'>
-//                 <Card.Body className='container' id='review'>
-//                     <Card.Text className='card-text'>
-//                         {this.props.reviews.casinoName}
-//                         {this.props.reviews.safety}
-//                         {this.props.reviews.lighting}
-//                         {this.props.reviews.bathroom}
-//                         {this.props.reviews.atmosphere}
-//                         {this.props.reviews.clientelle}
-//                         {this.props.reviews.drinks}
-//                     </Card.Text>
-//                 </Card.Body>
-//             </Card>
-//             </div>
-//         );
-//     }
-// }
+    handleReviewSubmit = (e) => {
+        e.preventDefault()
+        this.setState({
+            reviews: [...this.state.reviews, this.state]
+        })
+    }
+
+    render() {
+        return(
+            <div>
+                <form className='commentForm' onSubmit={this.handleReviewSubmit}>
+                    <input type='text' placeholder='Comment' onChange={this.handleReviewChange} />
+                    <button class='btn btn-primary form-control'>Post Comment</button>
+                </form>
+                {this.state.reviews.map((review, index) => (<p key={index}>{review.review}</p>)
+
+                )}   
+
+                   
+            </div>
+        )
+    };
+}

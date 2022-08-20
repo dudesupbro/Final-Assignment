@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 
@@ -16,26 +15,6 @@ export default class Stars extends React.Component {
       for (let i = 0; i < 5; i++) {
         this.state.stars.push(i + 1);
       }
-    }
-  
-    changeRating(newRating) {
-      this.setState({
-        rating: newRating,
-      });
-  
-      if (this.props.onChange) this.props.onChange(newRating);
-    }
-  
-    hoverRating(rating) {
-      this.setState({
-        hovered: rating,
-      });
-    }
-  
-    clearStars() {
-      this.setState({
-        rating: 0,
-      });
     }
   
     render() {

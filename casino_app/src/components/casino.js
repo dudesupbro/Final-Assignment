@@ -4,7 +4,6 @@ import '../styles/casinoStyled.css';
 import Card from 'react-bootstrap/Card';
 import '../styles/CasinoCard.css';
 import Stars from '../components/Stars.js';
-import ReviewList from '../components/reviewList';
 
 
 export default class Casino extends React.Component {
